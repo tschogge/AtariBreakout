@@ -10,7 +10,6 @@ function startSpiel() {
     //Der Knopf und Text wird verborgen
     startGame.style.display = "none";
     lostGame.style.display = "none";
-    let rechtecke = erschaffeRechtecke();
 
     //Canvas wird erstellt
     /** @type{HTMLCanvasElement}*/
@@ -22,13 +21,15 @@ function startSpiel() {
 
     let balken = new Balken(canvas);
     let kreis = new Kreis(canvas, balken);
+    let rechteck = new Rechteck(canvas);
+    rechteck.erschaffeRechtecke();
 
     //Haupt loop
     function spielAktualisieren() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
-        zeichneRechtecke(ctx, rechtecke);
+        rechteck.zeichneRechtecke();
 
         //Wenn true zurückkommt, wird das Spiel beendet
         if (kreis.bewegeKreis()) {
@@ -41,7 +42,7 @@ function startSpiel() {
         kreis.zeichneKreis();
 
         setTimeout(() => {
-            requestAnimationFrame((actualTime)=>{
+            requestAnimationFrame((actualTime) => {
                 spielAktualisieren();
             });
         }, kreis.timeOut);
