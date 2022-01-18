@@ -69,4 +69,16 @@ class Balken {
         this.zeichneBalken();
     }
 
+    /**
+     * erstellt herzen für Leben
+     * @param life  Anzahl der Leben des benutzers
+     */
+    erstelleLeben(life) {
+        let herz = new Image();
+        herz.src = "herz.png";
+        for (let i = 0; i < life; i++) {
+            this.ctx.drawImage(herz, i * 25 + 5, 10, 20, 20);
+        }
+    }
+
 }

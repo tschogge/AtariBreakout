@@ -53,16 +53,17 @@ class Kreis {
         this.trifftRechteck();
         if (this.x + this.radius >= this.canvas.width) {              //Wenn es an die rechte Wand kommt
             this.bekommeX(true, false);
-        } else if (this.x <= 0) {                        //Wenn es an die Linke Wand kommt
+        } else if (this.x - this.radius <= 0) {                        //Wenn es an die Linke Wand kommt
             this.bekommeX(false, true);
-        } else if (this.y >= this.canvas.height) {      //Wenn es an den Boden kommt
+        } else if (this.y + this.radius >= this.canvas.height) {      //Wenn es an den Boden kommt
             this.yBewegung = -this.geschwindigkeit;
             this.life--;                                //Leben runterzählen
             this.kreisZuruecksetzen();
-        } else if (this.y <= 0) {                         //Wenn es an das Dach kommt
+        } else if (this.y - this.radius <= 0) {                         //Wenn es an das Dach kommt
             this.yBewegung = this.geschwindigkeit;
         } else if (this.y >= this.balken.y && this.x >= this.balken.x && this.x <= this.balken.x + this.balken.width) { //Wenn der Kreis das Brett berührt
             this.yBewegung = -this.geschwindigkeit;
+            this.bekommeX(true, true);
         }
         //Wenn er kein leben mehr hat, wird true zurückgegeben
         if (this.life === 0) {
@@ -92,6 +93,7 @@ class Kreis {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.rechteck.zeichneRechtecke();
         this.balken.balkenZuruecksetzen();
+        this.balken.erstelleLeben(this.life);
         this.zeichneKreis();
     }
 

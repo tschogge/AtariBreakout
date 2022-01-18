@@ -1,4 +1,17 @@
+
 class Rechteck {
+    /**
+     *
+     * @param canvas            Das Canvas Objekt
+     * @param reihen            Wie viele Reihen voller Rechtecke es geben sollte (optional -> standard: 5)
+     * @param spalten           Wie viele Spalten voller Rechtecke es geben sollte (optional -> standard: 6)
+     * @param abstandMitte      Wie viel Abstand es zwischen den Rechtecken haben sollte (optional -> standard: 5)
+     * @param abstandOben       Wie viel Abstand die Rechtecke zur obersten Seite haben (optional -> standard: 40)
+     * @param abstandRechts     Wie viel Abstand die Rechtecke zu rechten Seite haben (optional -> standard: 15)
+     * @param abstandLinks      Wie viel Abstand die Rechtecke zu linken Seite haben (optional -> standard: 15)
+     * @param hoehe             Die höhe jedes einzelnen Rechtecks (optional -> standard: 20)
+     * @param color             Die Farbe, die die Rechtecke haben (optional -> standard: #ff2c2c)
+     */
     constructor(canvas, reihen = 5, spalten = 6, abstandMitte = 5, abstandOben = 40, abstandRechts = 15, abstandLinks = 15, hoehe = 20, color = "#ff2c2c") {
         this.abstandOben = abstandOben;
         this.abstandRechts = abstandRechts;

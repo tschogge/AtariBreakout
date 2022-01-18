@@ -30,6 +30,7 @@ function startSpiel() {
         balken.balkenBewegen();
         balken.zeichneBalken();
         rechteck.zeichneRechtecke();
+        balken.erstelleLeben(kreis.life);
 
         //Wenn true zurückkommt, wird das Spiel beendet
         if (kreis.bewegeKreis()) {
