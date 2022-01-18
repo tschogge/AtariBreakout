@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+    font-family: Calibri, serif;
+}
+
+button {
+    background-color: #234ebe;
+    color: aliceblue;
+    border: none;
+    min-height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#startSpiel {
+    font-size: large;
+    align-content: center;
+}
+
+#buttonContainer {
+    text-align: center;
+}
+
+#theGame {
+    background-image: url("background.jpg");
+    background-position: center;
+    background-size: cover;
+    visibility: hidden;
+}
+
+#canvasContainer{
+    text-align: center;
+}
