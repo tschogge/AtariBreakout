@@ -16,4 +16,11 @@ function startSpiel() {
 function rechteckZeichnen(ctx, x, y) {
     ctx.fillStyle = "#c71515";
     ctx.fillRect(x, y, 70, 30);
+
+}
+
+function balkenZeichnen(ctx, x, y) {
+    const balkenHoehe = 20;
+    const balkenBreite = 100;
+
 }
