@@ -3,6 +3,7 @@
  * @
  */
 function startSpiel() {
+    rechtecke = erschaffeRechtecke();
     //Der start knopf wird verborgen
     document.getElementById("startSpiel").style.display = "none";
 
@@ -18,11 +19,13 @@ function startSpiel() {
     let kreis = new Kreis(canvas, balken);
     kreis.life = 1;
 
+
     //Haupt loop
-    function spielAktualisieren() {
+    function spielAktualisieren(ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
+        zeichneRechtecke(ctx, rechtecke);
 
         //Wenn true zurückkommt, wird das Spiel beendet
         if (kreis.bewegeKreis()) {
@@ -32,9 +35,13 @@ function startSpiel() {
         }
         kreis.zeichneKreis();
 
-        requestAnimationFrame(spielAktualisieren);
+        requestAnimationFrame(
+            function (actualTime) {
+                spielAktualisieren(ctx);
+            }
+        );
     }
 
     //Starte spiel
-    spielAktualisieren();
+    spielAktualisieren(ctx);
 }
