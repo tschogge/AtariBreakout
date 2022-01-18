@@ -1,11 +1,11 @@
 class Rechteck {
-    constructor(canvas, abstandMitte = 5, abstandOben = 40, abstandRechts = 15, abstandLinks = 15, reihen = 5, spalten = 6, hoehe = 20, color = "#ff2c2c") {
+    constructor(canvas, reihen = 5, spalten = 6, abstandMitte = 5, abstandOben = 40, abstandRechts = 15, abstandLinks = 15, hoehe = 20, color = "#ff2c2c") {
         this.abstandOben = abstandOben;
         this.abstandRechts = abstandRechts;
         this.abstandLinks = abstandLinks;
         this.reihen = reihen;
         this.spalten = spalten;
-        this.hoehe = hoehe;
+        this.hoehe = hoehe + abstandMitte;
         this.color = color;
         this.canvas = canvas;
         this.abstandMitte = abstandMitte;
@@ -17,6 +17,17 @@ class Rechteck {
 
     //Erstellt alle rechtecke
     erschaffeRechtecke() {
+        /*
+        Der ausgleich berechnet die kommazahlen, die verloren gehen beim Zeichnen und multipliziert sie, um die Rechtecke
+        nach rechts zu verschieben. Somit sind die Rechtecke zentriert. Wenn das Resultat kleiner ist als null wird es
+        positiv gemacht, damit es nicht nach links verschoben wird
+        */
+        let ausgleich = (Math.round(this.breite) - this.breite) * this.spalten;
+        if (ausgleich < 0) {
+            ausgleich *= -1;
+        }
+        console.log(ausgleich);
+
         //Array mit Rechtecken erstellen
         this.rechtecke = [];
         //r für Reihe s für Spalten
@@ -25,25 +36,25 @@ class Rechteck {
             for (let s = 0; s < this.spalten; s++) {
                 this.rechtecke[r][s] = {
                     //position der Rechtecke speichern; Abstand von Rechtecken nach Muster berechnen
-                    x: r * (this.breite) + this.abstandLinks,
-                    y: s * (this.hoehe) + this.abstandOben,
+                    x: s * (this.breite) + this.abstandLinks + ausgleich,
+                    y: r * (this.hoehe) + this.abstandOben,
                     //Status ob Rechteck noch ganz oder bereits kaputt ist
                     status: true
                 };
             }
         }
+        console.log(this.rechtecke);
     }
 
     zeichneRechtecke() {
         //zuerst reihe auswählen
-        for (let r = 0; r < this.reihen; r++) {
+        for (let s = 0; s < this.spalten; s++) {
             //dann spalte zeichnen
-            for (let s = 0; s < this.spalten; s++) {
+            for (let r = 0; r < this.reihen; r++) {
                 //wenn das Rechteck auf diesen Kordinaten nicht abgeschossen wurde
                 if (this.rechtecke[r][s].status) {
                     this.ctx.fillStyle = this.color;
-                    this.ctx.fillRect(this.rechtecke[r][s].x, this.rechtecke[r][s].y, this.breite - this.abstandMitte, this.hoehe - this.abstandMitte);
-
+                    this.ctx.fillRect(this.rechtecke[r][s].x, this.rechtecke[r][s].y, this.breite - this.abstandMitte, this.hoehe - this.abstandMitte * 2);
                 }
             }
         }
