@@ -59,7 +59,7 @@ class Kreis {
             this.kreisZuruecksetzen();
         } else if (this.y <= 0) {                         //Wenn es an das Dach kommt
             this.yBewegung = this.geschwindigkeit;
-        } else if (this.y >= this.balken.y && this.x >= this.balken.x && this.x <= this.balken.x + this.balken.width) {
+        } else if (this.y >= this.balken.y && this.x >= this.balken.x && this.x <= this.balken.x + this.balken.width) { //Wenn der Kreis das Brett berührt
             this.yBewegung = -this.geschwindigkeit;
         }
 
@@ -74,7 +74,6 @@ class Kreis {
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - this.balken.height - 5 - this.radius;
         this.bekommeX(true, true);
-
         this.timeOut = 2000;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         zeichneRechtecke(this.ctx, this.rechtecke);
