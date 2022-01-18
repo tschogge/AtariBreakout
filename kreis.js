@@ -1,14 +1,14 @@
 class Kreis {
     /**
-     *
      * @param canvas            Das Canvas Element
      * @param balken            Das Balken Objekt
      * @param radius            Radius des Kreises (optional -> standard: 10)
      * @param color             Farbe des Kreises (optional -> standard: #ffdc2b)
      * @param geschwindigkeit   Wie schnell der Kreis maximal sich bewegen kann (optional -> standard: 3)
      * @param life              Anzahl Leben des Benutzers (optional -> standard: 3)
+     * @param rechteck          Das Rechteck Objekt
      */
-    constructor(canvas, balken, radius = 10, color = "#ffdc2b", geschwindigkeit = 3, life = 3) {
+    constructor(canvas, balken, rechteck, radius = 10, color = "#ffdc2b", geschwindigkeit = 3, life = 3) {
         this.x = canvas.width / 2;
         this.radius = radius;
         this.y = canvas.height - balken.height - this.radius - 5;
@@ -21,6 +21,7 @@ class Kreis {
         this.life = life;
         this.balken = balken;
         this.timeOut = 0;
+        this.rechteck = rechteck;
     }
 
     //Zeichnet den Kreis
@@ -76,7 +77,7 @@ class Kreis {
         this.bekommeX(true, true);
         this.timeOut = 2000;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        zeichneRechtecke(this.ctx, this.rechtecke);
+        this.rechteck.zeichneRechtecke();
         this.balken.balkenZuruecksetzen();
         this.zeichneKreis();
     }
