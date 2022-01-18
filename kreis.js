@@ -5,8 +5,8 @@ class Kreis {
      * @param balken            Das Balken Objekt
      * @param radius            Radius des Kreises (optional -> standard: 10)
      * @param color             Farbe des Kreises (optional -> standard: #ffdc2b)
-     * @param geschwindigkeit
-     * @param life
+     * @param geschwindigkeit   Wie schnell der Kreis maximal sich bewegen kann (optional -> standard: 3)
+     * @param life              Anzahl Leben des Benutzers (optional -> standard: 3)
      */
     constructor(canvas, balken, radius = 10, color = "#ffdc2b", geschwindigkeit = 3, life = 3) {
         this.x = canvas.width / 2;
