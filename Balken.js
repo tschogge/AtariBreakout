@@ -4,6 +4,7 @@ class Balken {
      * @param width     Die Breite des Balkens (optional -> standard: 100)
      * @param height    Die Höhe des Balkens (optional -> standard: 20)
      * @param color     Die Farbe des Balkens (optional -> standard: #063bda)
+     *
      */
     constructor(canvas, width = 100, height = 20, color = "#063bda") {
         this.width = width;
@@ -18,7 +19,6 @@ class Balken {
         this.rechts = false;
     }
 
-    //Zeichnet den balken in das Canvas
     zeichneBalken() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height);

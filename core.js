@@ -1,3 +1,7 @@
+/**
+ * @author Gioele Petrillo, Laurin Kuster
+ * @
+ */
 function startSpiel() {
     //Der start knopf wird verborgen
     document.getElementById("startSpiel").style.display = "none";
@@ -12,12 +16,12 @@ function startSpiel() {
 
     let balken = new Balken(canvas);
 
-    function dumm() {
+    function spielAktualisieren() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
-        requestAnimationFrame(dumm);
+        requestAnimationFrame(spielAktualisieren);
     }
 
-    dumm();
+    spielAktualisieren();
 }
