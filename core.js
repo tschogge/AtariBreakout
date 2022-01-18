@@ -3,9 +3,14 @@
  * @
  */
 function startSpiel() {
-    rechtecke = erschaffeRechtecke();
-    //Der start knopf wird verborgen
-    document.getElementById("startSpiel").style.display = "none";
+    //HTML Objekte
+    let startGame = document.getElementById("startSpiel");
+    let lostGame = document.getElementById("lostGame");
+
+    //Der Knopf und Text wird verborgen
+    startGame.style.display = "none";
+    lostGame.style.display = "none";
+    let rechtecke = erschaffeRechtecke();
 
     //Canvas wird erstellt
     /** @type{HTMLCanvasElement}*/
@@ -13,15 +18,13 @@ function startSpiel() {
     let ctx = canvas.getContext("2d");
 
     //Das canvas wird angezeigt
-    canvas.style.visibility = "visible";
+    canvas.style.display = "inline";
 
     let balken = new Balken(canvas);
     let kreis = new Kreis(canvas, balken);
-    kreis.life = 1;
-
 
     //Haupt loop
-    function spielAktualisieren(ctx) {
+    function spielAktualisieren() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
@@ -29,19 +32,21 @@ function startSpiel() {
 
         //Wenn true zurückkommt, wird das Spiel beendet
         if (kreis.bewegeKreis()) {
-            canvas.style.visibility = "hidden";
-
+            canvas.style.display = "none";
+            lostGame.style.display = "inline";
+            startGame.style.display = "inline";
+            startGame.innerHTML = "Neu Starten";
             return;
         }
         kreis.zeichneKreis();
 
-        requestAnimationFrame(
-            function (actualTime) {
-                spielAktualisieren(ctx);
-            }
-        );
+        setTimeout(() => {
+            requestAnimationFrame((actualTime)=>{
+                spielAktualisieren();
+            });
+        }, kreis.timeOut);
     }
 
     //Starte spiel
-    spielAktualisieren(ctx);
+    spielAktualisieren();
 }

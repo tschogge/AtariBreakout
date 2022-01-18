@@ -1,3 +1,8 @@
+class Rechtecke {
+    constructor(abstandOben, abstandRechts, abstandLinks, reihen, spalten, hoehe = 20, color = "#ff2c2c") {
+    }
+}
+
 //Rechteck instanzieren
 const rechteck = {
     reihen: 5,
@@ -9,7 +14,6 @@ const rechteck = {
     abstandRandOben: 40,
     abstandOben: 20,
     fillColor: "FFC300",
-    strokeColor: "#C70039",
 }
 
 
@@ -45,8 +49,6 @@ function zeichneRechtecke(ctx, rechtecke) {
                 console.log("KEKW");
                 ctx.fillStyle = rechteck.fillColor;
                 ctx.fillRect(rechtecke[r][s].x, rechtecke[r][s].y, rechteck.breiteRechteck, rechteck.hoeheRechteck);
-                ctx.strokeStyle = rechteck.strokeColor;
-                ctx.strokeRect(rechtecke[r][s].x, rechtecke[r][s].y, rechteck.breiteRechteck, rechteck.hoeheRechteck);
 
             }
         }

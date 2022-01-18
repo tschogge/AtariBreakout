@@ -16,9 +16,11 @@ class Kreis {
         this.ctx = canvas.getContext("2d");
         this.color = color;
         this.geschwindigkeit = geschwindigkeit;
-        this.xBewegung = this.geschwindigkeit;
+        this.bekommeX(true, true);
         this.yBewegung = -this.geschwindigkeit;
         this.life = life;
+        this.balken = balken;
+        this.timeOut = 0;
     }
 
     //Zeichnet den Kreis
@@ -32,32 +34,62 @@ class Kreis {
 
     //Bewegt den kreis im feld umher
     bewegeKreis() {
+        this.timeOut = 0;
         //Wenn true, dann sind alle leben aufgebraucht
         if (this.trifftWand()) {
             return true;
         }
 
-        //Bewege
-        this.y += this.yBewegung;
-        this.x += this.xBewegung;
+        //Bewege, wenn kein Timeout besteht
+        if (this.timeOut === 0) {
+            this.y += this.yBewegung;
+            this.x += this.xBewegung;
+        }
     }
 
     //Berechnet, ob der Kreis die Wand irgendwo berührt und ändert Richtung
     trifftWand() {
         if (this.x + this.radius >= this.canvas.width) {              //Wenn es an die rechte Wand kommt
-            this.xBewegung = -this.geschwindigkeit;
+            this.bekommeX(true, false);
         } else if (this.x <= 0) {                        //Wenn es an die Linke Wand kommt
-            this.xBewegung = this.geschwindigkeit;
+            this.bekommeX(false, true);
         } else if (this.y >= this.canvas.height) {      //Wenn es an den Boden kommt
             this.yBewegung = -this.geschwindigkeit;
             this.life--;                                //Leben runterzählen
+            this.kreisZuruecksetzen();
         } else if (this.y <= 0) {                         //Wenn es an das Dach kommt
             this.yBewegung = this.geschwindigkeit;
+        } else if (this.y >= this.balken.y && this.x >= this.balken.x && this.x <= this.balken.x + this.balken.width) {
+            this.yBewegung = -this.geschwindigkeit;
         }
 
         //Wenn er kein leben mehr hat, wird true zurückgegeben
         if (this.life === 0) {
             return true;
+        }
+    }
+
+    //Setzt den Ball zurück auf die Position und wartet
+    kreisZuruecksetzen() {
+        this.x = this.canvas.width / 2;
+        this.y = this.canvas.height - this.balken.height - 5 - this.radius;
+        this.bekommeX(true, true);
+
+        this.timeOut = 2000;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        zeichneRechtecke(this.ctx, this.rechtecke);
+        this.balken.balkenZuruecksetzen();
+        this.zeichneKreis();
+    }
+
+    //Generiert werte, um verschieden nach x zu gehen
+    bekommeX(minus, plus) {
+        if (minus && !plus) {
+            this.xBewegung = -3 * Math.random();
+        } else if (plus && !minus) {
+            this.xBewegung = 3 * Math.random();
+        } else if (minus && plus) {
+            this.xBewegung = 3 * (Math.random() * 2 - 1);
         }
     }
 }

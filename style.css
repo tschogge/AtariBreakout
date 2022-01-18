@@ -25,9 +25,17 @@ button {
     background-image: url("background.jpg");
     background-position: center;
     background-size: cover;
-    visibility: hidden;
+    display: none;
 }
 
-#canvasContainer{
+#canvasContainer {
     text-align: center;
+}
+
+h2 {
+    font-family: Calibri, serif;
+    text-align: center;
+    color: red;
+    display: none;
+    margin-bottom: 20px;
 }
