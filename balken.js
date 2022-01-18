@@ -1,10 +1,9 @@
 class Balken {
     /**
-     * @param canvas    Das canvas Element
-     * @param width     Die Breite des Balkens (optional -> standard: 100)
-     * @param height    Die Höhe des Balkens (optional -> standard: 20)
-     * @param color     Die Farbe des Balkens (optional -> standard: #063bda)
-     *
+     * @param canvas            Das canvas Element
+     * @param width             Die Breite des Balkens (optional -> standard: 100)
+     * @param height            Die Höhe des Balkens (optional -> standard: 20)
+     * @param color             Die Farbe des Balkens (optional -> standard: #063bda)
      */
     constructor(canvas, width = 100, height = 20, color = "#063bda") {
         this.width = width;
@@ -19,6 +18,7 @@ class Balken {
         this.rechts = false;
     }
 
+    //Zeichnet den balken an den x und y koordinaten
     zeichneBalken() {
         this.ctx.fillStyle = this.color;
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -34,21 +34,22 @@ class Balken {
         return this.x > 0;
     }
 
+    //Bewegt den balken nach rechts oder links, wenn die Pfeiltasten gedrückt werden
     balkenBewegen() {
         //Wenn gedrückt
         document.addEventListener("keydown", (event) => {
-            if (event.key === 'ArrowLeft') {
+            if (event.key === 'ArrowLeft') {            //Pfeil links gedrückt
                 this.links = true;
-            } else if (event.key === "ArrowRight") {
+            } else if (event.key === "ArrowRight") {    //Pfeil rechts geklickt
                 this.rechts = true;
             }
         });
 
         //Wenn losgelassen
         document.addEventListener("keyup", (event) => {
-            if (event.key === "ArrowLeft") {
+            if (event.key === "ArrowLeft") {            //Pfeil link losgelassen
                 this.links = false;
-            } else if (event.key === "ArrowRight") {
+            } else if (event.key === "ArrowRight") {    //Pfeil rechts losgelassen
                 this.rechts = false;
             }
         });

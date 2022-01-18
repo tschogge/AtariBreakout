@@ -15,11 +15,15 @@ function startSpiel() {
     canvas.style.visibility = "visible";
 
     let balken = new Balken(canvas);
+    let kreis = new Kreis(canvas, balken);
 
+    let life = 3;
     function spielAktualisieren() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
+        kreis.bewegeKreis();
+        kreis.zeichneKreis();
         requestAnimationFrame(spielAktualisieren);
     }
 
