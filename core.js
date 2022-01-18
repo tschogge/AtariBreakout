@@ -16,16 +16,25 @@ function startSpiel() {
 
     let balken = new Balken(canvas);
     let kreis = new Kreis(canvas, balken);
+    kreis.life = 1;
 
-    let life = 3;
+    //Haupt loop
     function spielAktualisieren() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         balken.balkenBewegen();
         balken.zeichneBalken();
-        kreis.bewegeKreis();
+
+        //Wenn true zurückkommt, wird das Spiel beendet
+        if (kreis.bewegeKreis()) {
+            canvas.style.visibility = "hidden";
+
+            return;
+        }
         kreis.zeichneKreis();
+
         requestAnimationFrame(spielAktualisieren);
     }
 
+    //Starte spiel
     spielAktualisieren();
 }
