@@ -26,7 +26,6 @@ class Rechteck {
         if (ausgleich < 0) {
             ausgleich *= -1;
         }
-        console.log(ausgleich);
 
         //Array mit Rechtecken erstellen
         this.rechtecke = [];
@@ -43,7 +42,6 @@ class Rechteck {
                 };
             }
         }
-        console.log(this.rechtecke);
     }
 
     zeichneRechtecke() {
