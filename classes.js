@@ -13,6 +13,9 @@ class Balken {
         this.move = 5;
         this.color = color;
         this.ctx = canvas.getContext("2d");
+        this.canvas = canvas;
+        this.links = false;
+        this.rechts = false;
     }
 
     //Zeichnet den balken in das Canvas
@@ -21,34 +24,41 @@ class Balken {
         this.ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
-    initialisiereBalken() {
-        let links = false;
-        let rechts = false;
+    //Berechnet, ob noch Platz zum Bewegen nach rechts verfügbar ist
+    istAmEndeRechts() {
+        return this.canvas.width - this.x - this.width > 0;
+    }
 
+    //Berechnet, ob noch Platz zum Bewegen nach Links verfügbar ist
+    istAmEndeLinks() {
+        return this.x > 0;
+    }
+
+    balkenBewegen() {
         //Wenn gedrückt
         document.addEventListener("keydown", (event) => {
             if (event.key === 'ArrowLeft') {
-                links = true;
+                this.links = true;
             } else if (event.key === "ArrowRight") {
-                rechts = true;
+                this.rechts = true;
             }
         });
 
         //Wenn losgelassen
         document.addEventListener("keyup", (event) => {
             if (event.key === "ArrowLeft") {
-                links = false;
-                console.log("Links");
+                this.links = false;
             } else if (event.key === "ArrowRight") {
-                rechts = false;
-                console.log("rechts");
+                this.rechts = false;
             }
         });
 
-        if (rechts) {
+        //Nach rechts oder links bewegen so lange es platz hat
+        if (this.rechts && this.istAmEndeRechts()) {
             this.x += this.move;
-        } else if (links) {
+        } else if (this.links && this.istAmEndeLinks()) {
             this.x -= this.move;
         }
     }
+
 }

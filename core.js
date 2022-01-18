@@ -11,6 +11,13 @@ function startSpiel() {
     canvas.style.visibility = "visible";
 
     let balken = new Balken(canvas);
-    balken.zeichneBalken();
-    balken.initialisiereBalken();
+
+    function dumm() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        balken.balkenBewegen();
+        balken.zeichneBalken();
+        requestAnimationFrame(dumm);
+    }
+
+    dumm();
 }
