@@ -35,7 +35,14 @@ button {
 h2 {
     font-family: Calibri, serif;
     text-align: center;
-    color: red;
     display: none;
     margin-bottom: 20px;
+}
+
+#lostGame {
+    color: red;
+}
+
+#wonGame {
+    color: mediumseagreen;
 }

@@ -6,6 +6,7 @@ function startSpiel() {
     //HTML Objekte
     let startGame = document.getElementById("startSpiel");
     let lostGame = document.getElementById("lostGame");
+    let wonGame = document.getElementById("wonGame");
 
     //Der Knopf und Text wird verborgen
     startGame.style.display = "none";
@@ -31,13 +32,20 @@ function startSpiel() {
         balken.zeichneBalken();
         rechteck.zeichneRechtecke();
         balken.erstelleLeben(kreis.life);
+        balken.zeigePunkte(kreis.getroffen);
 
         //Wenn true zurückkommt, wird das Spiel beendet
         if (kreis.bewegeKreis()) {
             canvas.style.display = "none";
-            lostGame.style.display = "inline";
             startGame.style.display = "inline";
             startGame.innerHTML = "Neu Starten";
+
+            //Wenn der Spieler alle abgeschossen hat
+            if (kreis.getroffen === rechteck.spalten * rechteck.reihen) {
+                wonGame.style.display = "inline";
+            } else {
+                lostGame.style.display = "inline";
+            }
             return;
         }
         kreis.zeichneKreis();

@@ -4,10 +4,12 @@ class Balken {
      * @param width             Die Breite des Balkens (optional -> standard: 100)
      * @param height            Die Höhe des Balkens (optional -> standard: 20)
      * @param color             Die Farbe des Balkens (optional -> standard: #063bda)
+     * @param punkte            Anzahl Punkte pro abgeschossenen Block (optional -> standard: 100)
      */
-    constructor(canvas, width = 100, height = 20, color = "#063bda") {
+    constructor(canvas, width = 100, height = 20, color = "#063bda", punkte = 100) {
         this.width = width;
         this.height = height;
+        this.punkte = punkte;
         this.x = canvas.width / 2 - this.width / 2;
         this.y = canvas.height - this.height - 5;
         this.move = 5;
@@ -79,6 +81,17 @@ class Balken {
         for (let i = 0; i < life; i++) {
             this.ctx.drawImage(herz, i * 25 + 5, 10, 20, 20);
         }
+    }
+
+    /**
+     * Zeigt die anzahl Punkte an, die der Spieler gemacht hat. Ein block = 100 Punkte
+     * @param bloecke       Anzahl getroffene Bloecke
+     */
+    zeigePunkte(bloecke) {
+        this.ctx.beginPath();
+        this.ctx.font = "15px Arial";
+        this.ctx.fillText("Punkte: " + bloecke * this.punkte, this.canvas.width - 100, 25);
+        this.ctx.fill();
     }
 
 }
