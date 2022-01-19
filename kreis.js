@@ -19,6 +19,7 @@ class Kreis {
         this.bekommeX(true, true);
         this.yBewegung = -this.geschwindigkeit;
         this.life = life;
+        this.lifeOrig = life;
         this.balken = balken;
         this.timeOut = 0;
         this.rechteck = rechteck;
@@ -51,7 +52,7 @@ class Kreis {
 
     //Berechnet, ob der Kreis die Wand irgendwo berührt und ändert Richtung
     trifftWand() {
-        if (this.trifftRechteck()){
+        if (this.trifftRechteck()) {
             return true;
         }
         if (this.x + this.radius >= this.canvas.width) {              //Wenn es an die rechte Wand kommt
@@ -88,7 +89,7 @@ class Kreis {
         }
 
         //Wenn alle getroffen sind
-        if (this.getroffen === this.rechteck.spalten*this.rechteck.reihen){
+        if (this.getroffen === this.rechteck.spalten * this.rechteck.reihen) {
             return true;
         }
     }

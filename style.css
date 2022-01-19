@@ -46,3 +46,20 @@ h2 {
 #wonGame {
     color: mediumseagreen;
 }
+
+table {
+    font-family: Calibri, serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+table tbody tr td {
+    text-align: left;
+}
+
+#gameData {
+    display: none;
+    text-align: center;
+    width: 100%;
+}
