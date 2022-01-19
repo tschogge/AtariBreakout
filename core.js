@@ -25,7 +25,7 @@ function startSpiel() {
     canvas.style.display = "inline";
 
     let balken = new Balken(canvas);
-    let rechteck = new Rechteck(canvas, 1, 1);
+    let rechteck = new Rechteck(canvas);
     let kreis = new Kreis(canvas, balken, rechteck);
     rechteck.erschaffeRechtecke(); //Rechtecke werden erschaffen
 
