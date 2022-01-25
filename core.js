@@ -60,6 +60,10 @@ function startSpiel() {
             //Setze Bewegung am Anfang
             kreis.yBewegung = -kreis.geschwindigkeit;
         }
+        if (einstellungenForm.elements['leben'].value !== 0) {
+            kreis.life = (einstellungenForm.elements['leben'].value);
+
+        }
 
     }
 
