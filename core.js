@@ -53,10 +53,10 @@ function startSpiel() {
                 balken.move = 5;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "3") {
                 kreis.geschwindigkeit = 6;
-                balken.move = 10;
+                balken.move = 8;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "4") {
                 kreis.geschwindigkeit = 8;
-                balken.move = 14;
+                balken.move = 10;
             } else {
                 kreis.geschwindigkeit = 2;
                 balken.move = 5;
