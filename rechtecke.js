@@ -24,7 +24,7 @@ class Rechteck {
         this.abstandMitte = abstandMitte;
         this.ctx = canvas.getContext("2d");
 
-        //Breite berechnen
+        //Breite berechnen (von 1 Rechteck)
         this.breite = (this.canvas.width - this.abstandRechts - this.abstandLinks) / this.spalten;
     }
 
