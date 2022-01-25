@@ -74,7 +74,6 @@ function startSpiel() {
 
     }
 
-    rechteck.abstandOben = 200;
     //Rechtecke werden erschaffen
     rechteck.erschaffeRechtecke();
 
