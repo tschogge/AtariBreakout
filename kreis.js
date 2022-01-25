@@ -86,12 +86,11 @@ class Kreis {
             for (let r = 0; r < this.rechteck.reihen; r++) {
                 //Wenn Position des Kreises auf einem Rechteck ist, dann wir der Status auf false gesetzt.
                 //Dafür wird die Position des Kreises überprüft mit for loops
-                if (this.rechteck.rechtecke[r][s].x <= this.x && this.rechteck.rechtecke[r][s].x + this.rechteck.breite >= this.x && this.rechteck.rechtecke[r][s].y >= this.y - this.radius - this.geschwindigkeit / 2 && this.rechteck.rechtecke[r][s].status) {
+                if (this.rechteck.rechtecke[r][s].x <= this.x && this.rechteck.rechtecke[r][s].x + this.rechteck.breite >= this.x && this.rechteck.rechtecke[r][s].y + this.rechteck.hoehe - this.rechteck.abstandMitte * 2 >= this.y - this.radius && this.rechteck.rechtecke[r][s].y <= this.y + this.radius + this.rechteck.abstandMitte * 2 && this.rechteck.rechtecke[r][s].status) {
                     //Wenn Balken getroffen wurde, dann wird der Status von Rechteck auf false gesetzt
                     this.rechteck.rechtecke[r][s].status = false;
                     this.bekommeX(true, true);
-                    this.yBewegung < 0 ? this.yBewegung = this.geschwindigkeit : this.yBewegung = -this.geschwindigkeit; //Y Bewegung ändern Nach oben oder unten
-                    this.yBewegung = this.geschwindigkeit;
+                    this.yBewegung < 0 ? this.yBewegung = this.geschwindigkeit : this.yBewegung = -1 * this.geschwindigkeit; //Y Bewegung ändern Nach oben oder unten
                     this.getroffen++; //Punkte werden gutgeschrieben
                 }
             }

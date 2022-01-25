@@ -74,7 +74,7 @@ function startSpiel() {
 
     }
 
-    rechteck.abstandOben = 100;
+    rechteck.abstandOben = 200;
     //Rechtecke werden erschaffen
     rechteck.erschaffeRechtecke();
 
@@ -105,7 +105,7 @@ function startSpiel() {
             //Daten anzeigen
             gameData.innerHTML = "<tr>" +
                 "<td>Punkte:</td>" +
-                "<td>" + kreis.getroffen * balken.punkte + "</td>" +
+                "<td>" + kreis.getroffen * balken.punkte * kreis.life + "</td>" +
                 "</tr>" +
                 "<tr>" +
                 "<td>Blöcke getroffen:</td>" +
@@ -113,7 +113,10 @@ function startSpiel() {
                 "</tr>" +
                 "<tr>" +
                 "<td>Leben übrig:</td>" +
-                "<td>" + kreis.life + " / " + kreis.lifeOrig + "</td></tr>";
+                "<td>" + kreis.life + " / " + kreis.lifeOrig + "</td></tr>" +
+                "<tr>" +
+                "<td>Persöhnliche Leistung:</td>" +
+                "<td>" + Math.round(((kreis.getroffen * balken.punkte * kreis.life) / (kreis.lifeOrig * rechteck.reihen * rechteck.spalten * balken.punkte) * 100)) + "%</td></tr>";
             return;
         }
         kreis.zeichneKreis();
