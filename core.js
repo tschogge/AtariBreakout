@@ -1,7 +1,13 @@
 /**
- * @author Gioele Petrillo, Laurin Kuster
- * @
+ * @author      Gioele Petrillo, Laurin Kuster
+ * @version     1.4
+ * @description Die Haupt Datei, die das Spiel laufen lässt. 25.01.2022
  */
+
+function einstellungen() {
+
+}
+
 function startSpiel() {
     //HTML Objekte
     let startGame = document.getElementById("startSpiel");

@@ -1,3 +1,8 @@
+/**
+ * @author      Gioele Petrillo, Laurin Kuster
+ * @version     1.8
+ * @description Hier wird der Balken definiert und seine Methoden, wie er sich verhalten muss. 25.01.2022
+ */
 class Balken {
     /**
      * @param canvas            Das canvas Element

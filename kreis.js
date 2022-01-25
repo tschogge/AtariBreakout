@@ -1,3 +1,8 @@
+/**
+ * @author      Gioele Petrillo, Laurin Kuster
+ * @version     2.0
+ * @description Hier wird der Kreis definiert und seine Methoden wie er sich verhalten muss. 25.01.2022
+ */
 class Kreis {
     /**
      * @param canvas            Das Canvas Element
@@ -110,7 +115,12 @@ class Kreis {
         this.zeichneKreis();
     }
 
-    //Generiert werte, um verschieden nach x zu gehen
+
+    /**
+     * Generiert werte, um verschieden nach x zu gehen
+     * @param minus     True, damit der Ball nach links gehen kann
+     * @param plus      True, damit der Ball nach rechts gehen kann
+     */
     bekommeX(minus, plus) {
         if (minus && !plus) {
             this.xBewegung = -3 * Math.random(); //Ball geht nach Links
