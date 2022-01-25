@@ -22,10 +22,9 @@ button {
 }
 
 #theGame {
-    background-image: url("background.jpg");
-    background-position: center;
     background-size: cover;
     display: none;
+    background: linear-gradient(to top, darkblue, purple);
 }
 
 #canvasContainer {
@@ -62,4 +61,16 @@ table tbody tr td {
     display: none;
     text-align: center;
     width: 100%;
+}
+
+#gameSettings {
+    list-style: none;
+    padding: 0;
+    display: none;
+}
+
+#einstellungenText {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
 }

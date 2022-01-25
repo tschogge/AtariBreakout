@@ -8,10 +8,10 @@ class Balken {
      * @param canvas            Das canvas Element
      * @param width             Die Breite des Balkens (optional -> standard: 100)
      * @param height            Die Höhe des Balkens (optional -> standard: 20)
-     * @param color             Die Farbe des Balkens (optional -> standard: #063bda)
+     * @param color             Die Farbe des Balkens (optional -> standard: #d51fff)
      * @param punkte            Anzahl Punkte pro abgeschossenen Block (optional -> standard: 100)
      */
-    constructor(canvas, width = 100, height = 20, color = "#063bda", punkte = 100) {
+    constructor(canvas, width = 100, height = 20, color = "#d51fff", punkte = 100) {
         this.width = width;
         this.height = height;
         this.punkte = punkte;

@@ -115,7 +115,6 @@ class Kreis {
         this.zeichneKreis();
     }
 
-
     /**
      * Generiert werte, um verschieden nach x zu gehen
      * @param minus     True, damit der Ball nach links gehen kann
