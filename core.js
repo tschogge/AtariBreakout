@@ -50,12 +50,16 @@ function startSpiel() {
         if (einstellungenForm.elements['geschwindigkeit'].value !== 0) {
             if (einstellungenForm.elements['geschwindigkeit'].value === "2") {
                 kreis.geschwindigkeit = 5;
+                balken.move = 5;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "3") {
                 kreis.geschwindigkeit = 10;
+                balken.move = 10;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "4") {
                 kreis.geschwindigkeit = 15;
+                balken.move = 14;
             } else {
                 kreis.geschwindigkeit = 3;
+                balken.move = 5
             }
             //Setze Bewegung am Anfang
             kreis.yBewegung = -kreis.geschwindigkeit;
@@ -70,6 +74,7 @@ function startSpiel() {
 
     }
 
+    rechteck.abstandOben = 100;
     //Rechtecke werden erschaffen
     rechteck.erschaffeRechtecke();
 

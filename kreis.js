@@ -75,7 +75,7 @@ class Kreis {
             this.bekommeX(true, true);
         }
         //Wenn er kein leben mehr hat, wird true zurückgegeben
-        if (this.life === 0) {
+        if (this.life <= 0) {
             return true;
         }
     }
@@ -90,6 +90,7 @@ class Kreis {
                     //Wenn Balken getroffen wurde, dann wird der Status von Rechteck auf false gesetzt
                     this.rechteck.rechtecke[r][s].status = false;
                     this.bekommeX(true, true);
+                    this.yBewegung < 0 ? this.yBewegung = this.geschwindigkeit : this.yBewegung = -this.geschwindigkeit; //Y Bewegung ändern Nach oben oder unten
                     this.yBewegung = this.geschwindigkeit;
                     this.getroffen++; //Punkte werden gutgeschrieben
                 }
@@ -122,11 +123,11 @@ class Kreis {
      */
     bekommeX(minus, plus) {
         if (minus && !plus) {
-            this.xBewegung = -3 * Math.random(); //Ball geht nach Links
+            this.xBewegung = -this.geschwindigkeit * Math.random(); //Ball geht nach Links
         } else if (plus && !minus) {
-            this.xBewegung = 3 * Math.random(); //Ball geht nach Rechts
+            this.xBewegung = this.geschwindigkeit * Math.random(); //Ball geht nach Rechts
         } else if (minus && plus) {
-            this.xBewegung = 3 * (Math.random() * 2 - 1); //Ball kann in beide Seiten gehen
+            this.xBewegung = this.geschwindigkeit * (Math.random() * 2 - 1); //Ball kann in beide Seiten gehen
         }
     }
 }
