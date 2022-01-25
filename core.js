@@ -49,17 +49,17 @@ function startSpiel() {
         }
         if (einstellungenForm.elements['geschwindigkeit'].value !== 0) {
             if (einstellungenForm.elements['geschwindigkeit'].value === "2") {
-                kreis.geschwindigkeit = 5;
+                kreis.geschwindigkeit = 4;
                 balken.move = 5;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "3") {
-                kreis.geschwindigkeit = 10;
+                kreis.geschwindigkeit = 7;
                 balken.move = 10;
             } else if (einstellungenForm.elements['geschwindigkeit'].value === "4") {
-                kreis.geschwindigkeit = 15;
+                kreis.geschwindigkeit = 10;
                 balken.move = 14;
             } else {
-                kreis.geschwindigkeit = 3;
-                balken.move = 5
+                kreis.geschwindigkeit = 2;
+                balken.move = 5;
             }
             //Setze Bewegung am Anfang
             kreis.yBewegung = -kreis.geschwindigkeit;
@@ -101,10 +101,16 @@ function startSpiel() {
                 lostGame.style.display = "inline";
             }
 
+            let multiplikator = 0;
+            if (kreis.life <= 0) {
+                multiplikator = 1;
+            } else {
+                multiplikator = kreis.life;
+            }
             //Daten anzeigen
             gameData.innerHTML = "<tr>" +
                 "<td>Punkte:</td>" +
-                "<td>" + kreis.getroffen * balken.punkte * kreis.life + "</td>" +
+                "<td>" + kreis.getroffen * balken.punkte * multiplikator + "</td>" +
                 "</tr>" +
                 "<tr>" +
                 "<td>Blöcke getroffen:</td>" +
@@ -115,7 +121,7 @@ function startSpiel() {
                 "<td>" + kreis.life + " / " + kreis.lifeOrig + "</td></tr>" +
                 "<tr>" +
                 "<td>Persöhnliche Leistung:</td>" +
-                "<td>" + Math.round(((kreis.getroffen * balken.punkte * kreis.life) / (kreis.lifeOrig * rechteck.reihen * rechteck.spalten * balken.punkte) * 100)) + "%</td></tr>";
+                "<td>" + Math.round(((kreis.getroffen * balken.punkte * multiplikator) / (kreis.lifeOrig * rechteck.reihen * rechteck.spalten * balken.punkte) * 100)) + "%</td></tr>";
             return;
         }
         kreis.zeichneKreis();
