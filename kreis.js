@@ -79,11 +79,14 @@ class Kreis {
     trifftRechteck() {
         for (let s = 0; s < this.rechteck.spalten; s++) {
             for (let r = 0; r < this.rechteck.reihen; r++) {
+                //Wenn Position des Kreises auf einem Rechteck ist, dann wir der Status auf false gesetzt.
+                //Dafür wird die Position des Kreises überprüft mit for loops
                 if (this.rechteck.rechtecke[r][s].x <= this.x && this.rechteck.rechtecke[r][s].x + this.rechteck.breite >= this.x && this.rechteck.rechtecke[r][s].y >= this.y - this.radius - this.geschwindigkeit / 2 && this.rechteck.rechtecke[r][s].status) {
+                    //Wenn Balken getroffen wurde, dann wird der Status von Rechteck auf false gesetzt
                     this.rechteck.rechtecke[r][s].status = false;
                     this.bekommeX(true, true);
                     this.yBewegung = this.geschwindigkeit;
-                    this.getroffen++;
+                    this.getroffen++; //Punkte werden gutgeschrieben
                 }
             }
         }
@@ -110,11 +113,11 @@ class Kreis {
     //Generiert werte, um verschieden nach x zu gehen
     bekommeX(minus, plus) {
         if (minus && !plus) {
-            this.xBewegung = -3 * Math.random();
+            this.xBewegung = -3 * Math.random(); //Ball geht nach Links
         } else if (plus && !minus) {
-            this.xBewegung = 3 * Math.random();
+            this.xBewegung = 3 * Math.random(); //Ball geht nach Rechts
         } else if (minus && plus) {
-            this.xBewegung = 3 * (Math.random() * 2 - 1);
+            this.xBewegung = 3 * (Math.random() * 2 - 1); //Ball kann in beide Seiten gehen
         }
     }
 }
