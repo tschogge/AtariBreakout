@@ -1,50 +1,53 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Breakout Game</title>
     <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-<h1>Breakout Spiel</h1>
-<div id="buttonContainer">
-    <h2 id="lostGame">Game Over</h2>
-    <h2 id="wonGame">Spiel Gewonnen</h2>
-    <br>
-    <table>
-        <tbody id="gameData"></tbody>
-    </table>
-    <br>
-    <button id="startSpiel" onclick="startSpiel()">Spiel starten</button>
-    <p id="einstellungenText">Einstellungen</p>
-    <form name="einstellungen" id="einstellungenForm">
-        <ul id="gameSettings">
-            <li><label for="spalten">Anzahl Spalten (max: 15)</label></li>
-            <li><input type="number" name="spalten" id="spalten"></li>
-            <li><label for="reihen">Anzahl Reihen (max: 15)</label></li>
-            <li><input type="number" name="reihen" id="reihen"></li>
-            <li><label for="geschwindigkeit">Geschwindigkeit</label></li>
-            <li><select id="geschwindigkeit" name="geschwindigkeit" form="einstellungenForm">
-                <option value="1">Normal</option>
-                <option value="2">Schnell</option>
-                <option value="3">Schneller</option>
-                <option value="4">Am schnellsten</option>
-            </select></li>
-            <li><label for="leben">Anzahl Leben</label></li>
-            <li><input type="number" name="leben" id="leben"></li>
-        </ul>
-    </form>
-</div>
-<div id="canvasContainer">
-    <canvas id="theGame" width="400" height="500"></canvas>
-</div>
-<!-- Scripts laden-->
-<script src="balken.js"></script>
-<script src="kreis.js"></script>
-<script src="rechtecke.js"></script>
-<script src="core.js"></script>
+    <h1>Breakout Spiel</h1>
+    <div id="buttonContainer">
+        <h2 id="lostGame">Game Over</h2>
+        <h2 id="wonGame">Spiel Gewonnen</h2>
+        <br>
+        <table>
+            <tbody id="gameData"></tbody>
+        </table>
+        <br>
+        <button id="startSpiel" onclick="startSpiel()">Spiel starten</button>
+        <p id="einstellungenText">Einstellungen</p>
+        <form name="einstellungen" id="einstellungenForm">
+            <ul id="gameSettings">
+                <li><label for="spalten">Anzahl Spalten (max: 15)</label></li>
+                <li><input type="number" name="spalten" id="spalten"></li>
+                <li><label for="reihen">Anzahl Reihen (max: 15)</label></li>
+                <li><input type="number" name="reihen" id="reihen"></li>
+                <li><label for="geschwindigkeit">Geschwindigkeit</label></li>
+                <li><select id="geschwindigkeit" name="geschwindigkeit" form="einstellungenForm">
+                        <option value="1">Normal</option>
+                        <option value="2">Schnell</option>
+                        <option value="3">Schneller</option>
+                        <option value="4">Am schnellsten</option>
+                    </select></li>
+                <li><label for="leben">Anzahl Leben</label></li>
+                <li><input type="number" name="leben" id="leben"></li>
+            </ul>
+        </form>
+    </div>
+    <div id="canvasContainer">
+        <canvas id="theGame" width="400" height="500"></canvas>
+    </div>
+    <!-- Scripts laden-->
+    <script src="balken.js"></script>
+    <script src="kreis.js"></script>
+    <script src="rechtecke.js"></script>
+    <script src="core.js"></script>
 </body>
+
 </html>
