@@ -1,12 +1,17 @@
+/**
+ * @author      Gioele Petrillo, Laurin Kuster
+ * @version     1.8
+ * @description Hier wird der Balken definiert und seine Methoden, wie er sich verhalten muss. 25.01.2022
+ */
 class Balken {
     /**
      * @param canvas            Das canvas Element
      * @param width             Die Breite des Balkens (optional -> standard: 100)
      * @param height            Die Höhe des Balkens (optional -> standard: 20)
-     * @param color             Die Farbe des Balkens (optional -> standard: #063bda)
+     * @param color             Die Farbe des Balkens (optional -> standard: #d51fff)
      * @param punkte            Anzahl Punkte pro abgeschossenen Block (optional -> standard: 100)
      */
-    constructor(canvas, width = 100, height = 20, color = "#063bda", punkte = 100) {
+    constructor(canvas, width = 100, height = 20, color = "#d51fff", punkte = 100) {
         this.width = width;
         this.height = height;
         this.punkte = punkte;

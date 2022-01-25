@@ -1,4 +1,8 @@
-
+/**
+ * @author      Gioele Petrillo, Laurin Kuster
+ * @version     1.3
+ * @description Hier werden die Rechtecke definiert und die Methoden wie sie sich verhalten müssen. 25.01.2022
+ */
 class Rechteck {
     /**
      *
@@ -23,8 +27,16 @@ class Rechteck {
         this.canvas = canvas;
         this.abstandMitte = abstandMitte;
         this.ctx = canvas.getContext("2d");
+        this.setSpalten(spalten);
+    }
 
-        //Breite berechnen (von 1 Rechteck)
+    /**
+     * Setzt die anzahl Spalten und berechnet deren Breite
+     * @param anzahlSpalten
+     */
+    setSpalten(anzahlSpalten) {
+        this.spalten = anzahlSpalten;
+        //Breite berechnen
         this.breite = (this.canvas.width - this.abstandRechts - this.abstandLinks) / this.spalten;
     }
 
@@ -57,6 +69,7 @@ class Rechteck {
         }
     }
 
+    //Zeichnet die Rechtecke auf das Canvas
     zeichneRechtecke() {
         //zuerst reihe auswählen
         for (let s = 0; s < this.spalten; s++) {
