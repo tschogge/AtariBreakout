@@ -67,11 +67,7 @@ function startSpiel() {
         if (einstellungenForm.elements['leben'].value.length !== 0 && einstellungenForm.elements['leben'].value > 0) {
             kreis.life = (einstellungenForm.elements['leben'].value);
             kreis.lifeOrig = kreis.life
-
-
         }
-
-
     }
 
     //Rechtecke werden erschaffen
